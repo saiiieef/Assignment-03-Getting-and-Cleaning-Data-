@@ -39,6 +39,10 @@ head(storm_data_2) #making sure the data is correctly imported
 
 # 3
 
+storm_data_2$BEGIN_DATE_TIME <- dmy_hms(storm_data_2$BEGIN_DATE_TIME) #converting column to date month year
+
+storm_data_2$END_DATE_TIME <- dmy_hms(storm_data_2$END_DATE_TIME) #converting column to date month year
+
 storm_data_2$BEGIN_DATE_TIME<- arrange(storm_data_2, BEGIN_DATE_TIME) #Arranging the data beginning year and month
 
 
@@ -69,7 +73,7 @@ storm_data_2$CZ_FIPS <- str_pad(storm_data_2$CZ_FIPS, width = 3, side = "left", 
 
 storm_data_2 <- unite(storm_data_2, FIPS_CODE, c("STATE_FIPS", "CZ_FIPS"), sep="") #removed 2 columns to make 1 new column
 
-colnames(storm_data_2) #viewong my new df columns
+colnames(storm_data_2) #viewing my new df columns
 
 
 # 7
